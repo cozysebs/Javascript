@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>문서 제목</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  
+  <div class="alertBox1" id="alert">
+    <p id="alertText"></p> 
+    <button id="close">닫기</button>
+  </div>
+
+  <button id="control" onclick="controlAlert('block', '아이디를 입력해주세요.')">ID BUTTON</button>
+  <button id="control" onclick="controlAlert('block', '비밀번호를 입력해주세요.')">PASSWORD BUTTON</button>
+
+  <script>
+    function controlAlert(param, text){
+      document.getElementById('alertText').innerHTML = text;
+      document.getElementById('alert').style.display = param;
+      // document.getElementById('control').addEventListener('click', function(){
+      //   document.getElementById('alertText').innerHTML = text;
+      //   document.getElementById('alert').style.display = param;
+      // })
+    }
+
+    document.getElementById('close').addEventListener('click', function(){
+      document.getElementById('alert').style.display = 'none'
+    })
+   
+  </script>
+</body>
+</html>
