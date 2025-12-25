@@ -58,29 +58,51 @@
     </div>
 
     <script>
-
-      if ( 1 == 3) {
-        console.log('맞아용1')
-      } else if (1 == 2) {
-        console.log('맞아용2')
-      } else {
-        console.log('맞아용3')
-      }
       
-      // 전송버튼 누르면 
-      // input에 입력한 값이 공백이면 알림창 띄우셈 btn-primary
+      function game(x) {
+        if(x === 0 ) {
+          console.log('통과')
+        } else if (x % 3 == 0) {
+          console.log('박수')
+        } else {
+          console.log('통과')
+        }
+      }
 
-      // document.getElementsByClassName('btn-primary')[0].addEventListener('click', function(){
-      //   const formId = document.getElementById('formId').value;
-      //   const formPassword = document.getElementById('formPassword').value;
+      function game2(x) {
+        if (x % 9 == 0) {
+          console.log('박수박수')
+        } else if (x % 3 == 0) {
+          console.log('박수')
+        } else {
+          console.log('통과')
+        }
+      }
 
-      //   if(!formId) {
-      //     alert('아이디를 입력해주세요')
-      //   }
-      //   if(!formPassword) {
-      //     alert('비밀번호를 입력해주세요')
-      //   }
-      // })
+      function game3(x) {
+        var y = x % 10
+        if(y == 0) {
+          console.log('통과')
+        } else if (y % 3 == 0) {
+          console.log('박수')
+        } else {
+          console.log('통과')
+        }
+      }
+
+      function check(x,y) {
+        if ((x<0||x>100) || (y<0||y>100)) {
+          console.log('숫자 똑바로 입력하셈')
+        } else if ( (x+y)>=120 && x>=40 && y>=40) {
+          console.log('합격')
+        } else {
+          console.log('불합격')
+        }
+      } 
+
+    </script>
+
+    <script>
 
       $('form').on('submit', function(e){
         if($('#formId').val() === ''){
