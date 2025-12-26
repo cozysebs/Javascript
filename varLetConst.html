@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>변수, 사칙연산 실력향상 과제</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+
+  <script>
+    // var age = 26;
+    // const local = 'Busan'
+
+    // console.log(age)
+    // console.log(local)
+
+    // var name = 'park';
+    // var id = 0;
+
+    // function showName(){
+    //   var name = 'kim';
+    //   var id = 1;
+    //   console.log(name)
+    // }
+
+    // showName()
+    // console.log(id)
+
+    var balance = 10000;
+    var fBalance = 0;
+
+    function interest(x) {
+      if(x < 50000) {
+        fBalance += (x + (x*0.15))
+        fBalance += fBalance*0.15
+      } else {
+        fBalance += (x + (x*0.2))
+        fBalance += fBalance*0.2
+      }
+    }
+
+    interest(balance)
+
+    console.log(fBalance)
+
+
+
+  </script>
+
+
+</body>
+</html>

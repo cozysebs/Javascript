@@ -13,8 +13,6 @@
   </head>
   <body>
 
-
-
     <div class="black-bg">
       <div class="white-bg">
         <h4>로그인하세요</h4>
@@ -35,7 +33,8 @@
 
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <span class="navbar-brand">Navbar</span>
+        <span class="navbar-brand">JSShop</span>
+        <span class="badge bg-dark">Light🔄</span>
         <button class="navbar-toggler" type="button">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -56,6 +55,31 @@
       <h4>Shirts on Sale</h4>
       <button id="login" class="btn btn-danger">로그인</button>
     </div>
+
+
+    <h2>Hello</h2>
+
+
+    <script>
+      const name = 'kim'
+      name = 'park'
+    </script>
+
+
+    <script>
+      var count = 0;
+      $('.badge').on('click', function(){
+        count += 1;
+        console.log(count)
+        if ( count % 2 != 0) {
+          $('.badge').text('Dark🔄')
+          $('body').addClass('dark')
+        } else {
+          $('.badge').text('Light🔄')
+          $('body').removeClass('dark')
+        }
+      })
+    </script>
 
     <script>
       
