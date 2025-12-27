@@ -57,14 +57,105 @@
     </div>
 
 
-    <h2>Hello</h2>
+    <div class="alert alert-danger">
+      <span id ='sec'>5</span>초 이내 구매시 사은품 증정!    
+    </div>
 
+
+    <div style="overflow: hidden;">
+      <div class="slide-container">
+        <div class="slide-box">
+          <img src="images/car1.png">
+        </div>
+        <div class="slide-box">
+          <img src="images/car2.png">
+        </div>
+        <div class="slide-box">
+          <img src="images/car3.png">
+        </div>
+        <div class="slide-box">
+          <img src="images/car1.png">
+        </div>
+        <div class="slide-box">
+          <img src="images/car2.png">
+        </div>
+        <div class="slide-box">
+          <img src="images/car3.png">
+        </div>
+        <div class="slide-box">
+          <img src="images/car1.png">
+        </div>
+        <div class="slide-box">
+          <img src="images/car2.png">
+        </div>
+        <div class="slide-box">
+          <img src="images/car3.png">
+        </div>
+      </div>
+    </div>
+
+    <button class="slide prev">이전</button>
+    <button class="slide numBtn slide-1">1</button>
+    <button class="slide numBtn slide-2">2</button>
+    <button class="slide numBtn slide-3">3</button>
+    <button class="slide numBtn slide-4">4</button>
+    <button class="slide numBtn slide-5">5</button>
+    <button class="slide numBtn slide-6">6</button>
+    <button class="slide numBtn slide-7">7</button>
+    <button class="slide numBtn slide-8">8</button>
+    <button class="slide numBtn slide-9">9</button>
+    <button class="slide next">다음</button>
 
     <script>
-      const name = 'kim'
-      name = 'park'
+
+      //slide라는 class를 가진 버튼을 클릭하면 각 slide 속성에 따른 버튼을 활성화하는 함수를 만들고자 함.
+      var x = 0;
+      var y = 0;
+      var numBtn = $('.numBtn').length
+
+      $('.slide').on('click', function(){
+          var prevNextClass = $(this).attr('class').slice(6,)
+          var btnClass = $(this).attr('class').slice(13,)
+          console.log(btnClass)
+          console.log(prevNextClass)
+     
+          if(prevNextClass == 'prev') {
+            if (x == 0) {
+              return false
+            } else(
+              x += 100
+            )
+            $('.slide-container').css('transform', `translateX(${x}vw)`);
+          }
+          if(prevNextClass == 'next') {
+            if (x == (numBtn-1)*(-100)) {
+              return false
+            } else(
+              x -= 100
+            )
+            $('.slide-container').css('transform', `translateX(${x}vw)`);
+          }
+          if(/^s/.test(btnClass)) {
+            y = btnClass.slice(6,)
+            y--;
+            console.log(y)
+            x = -(y * 100)
+            $('.slide-container').css('transform', `translateX(${(x)}vw)`);
+          }
+        });
+    
     </script>
 
+    <!-- <script>
+      let sec = 4;
+      setInterval(function(){
+        $('#sec').text(sec);
+        if (sec == 0) {
+          $('.alert-danger').hide();
+        }
+        sec--;
+      }, 1000)
+    </script> -->
 
     <script>
       var count = 0;
@@ -82,66 +173,28 @@
     </script>
 
     <script>
-      
-      function game(x) {
-        if(x === 0 ) {
-          console.log('통과')
-        } else if (x % 3 == 0) {
-          console.log('박수')
-        } else {
-          console.log('통과')
-        }
-      }
-
-      function game2(x) {
-        if (x % 9 == 0) {
-          console.log('박수박수')
-        } else if (x % 3 == 0) {
-          console.log('박수')
-        } else {
-          console.log('통과')
-        }
-      }
-
-      function game3(x) {
-        var y = x % 10
-        if(y == 0) {
-          console.log('통과')
-        } else if (y % 3 == 0) {
-          console.log('박수')
-        } else {
-          console.log('통과')
-        }
-      }
-
-      function check(x,y) {
-        if ((x<0||x>100) || (y<0||y>100)) {
-          console.log('숫자 똑바로 입력하셈')
-        } else if ( (x+y)>=120 && x>=40 && y>=40) {
-          console.log('합격')
-        } else {
-          console.log('불합격')
-        }
-      } 
-
-    </script>
-
-    <script>
 
       $('form').on('submit', function(e){
-        if($('#formId').val() === ''){
+        var inputId = $('#formId').val();
+        var inputPassword = $('#formPassword').val()
+        const emailRegex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+~`\-={}[\]:;"'<>,.?/\\]).{10,}$/;
+
+        if(inputId === ''){
           alert('아이디를 입력하셈');
           e.preventDefault();
+        } else if (emailRegex.test(inputId) == false) {
+          alert('이메일 형식 아님')
+          e.preventDefault();
         }
-        if($('#formPassword').val() === ''){
+        if(inputPassword === ''){
           alert('비밀번호를 입력하셈');
           e.preventDefault();
-        } else if ($('#formPassword').length < 6) {
-          alert('비밀번호는 6자 이상 입력해야함');
+        } else if (passwordRegex.test(inputPassword) == false) {
+          alert('영문(대소문자) + 숫자 + 특수문자가 각 1회 이상 입력되어 있고 10자리 이상 입력해야함');
           e.preventDefault();
         }
       })
-
     </script>
 
     <script>

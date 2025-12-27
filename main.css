@@ -54,3 +54,18 @@
   background: black;
   color:white;
 }
+
+.slide-container {
+  width: 900vw;
+  transition: all 1s;
+  transform: translateX();
+}
+
+.slide-box {
+  width: 100vw;
+  float: left;
+}
+
+.slide-box img {
+  width: 100%;
+}
