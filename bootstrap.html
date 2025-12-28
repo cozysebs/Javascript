@@ -13,6 +13,16 @@
   </head>
   <body>
 
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">JSShop</span>
+        <span class="badge bg-dark">Light🔄</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
     <div class="black-bg">
       <div class="white-bg">
         <h4>로그인하세요</h4>
@@ -29,18 +39,6 @@
       </div>
     </div>
 
-
-
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <span class="navbar-brand">JSShop</span>
-        <span class="badge bg-dark">Light🔄</span>
-        <button class="navbar-toggler" type="button">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </nav>
-    
     <ul class="list-group" id="test1">
       <li class="list-group-item">An item</li>
       <li class="list-group-item">A second item</li>
@@ -94,20 +92,79 @@
       </div>
     </div>
 
-    <button class="slide prev">이전</button>
-    <button class="slide numBtn slide-1">1</button>
-    <button class="slide numBtn slide-2">2</button>
-    <button class="slide numBtn slide-3">3</button>
-    <button class="slide numBtn slide-4">4</button>
-    <button class="slide numBtn slide-5">5</button>
-    <button class="slide numBtn slide-6">6</button>
-    <button class="slide numBtn slide-7">7</button>
-    <button class="slide numBtn slide-8">8</button>
-    <button class="slide numBtn slide-9">9</button>
-    <button class="slide next">다음</button>
+    <div class="btnList">
+      <button class="slide prev">이전</button>
+      <button class="slide numBtn slide-1">1</button>
+      <button class="slide numBtn slide-2">2</button>
+      <button class="slide numBtn slide-3">3</button>
+      <button class="slide numBtn slide-4">4</button>
+      <button class="slide numBtn slide-5">5</button>
+      <button class="slide numBtn slide-6">6</button>
+      <button class="slide numBtn slide-7">7</button>
+      <button class="slide numBtn slide-8">8</button>
+      <button class="slide numBtn slide-9">9</button>
+      <button class="slide next">다음</button>
+    </div>
+
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll;">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Quae voluptas voluptatum minus praesentium fugit debitis at, 
+      laborum ipsa itaque placeat sit, excepturi eius. 
+      Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+    </div>
+
+    <div style="height: 1000px;"></div>
+
+
+
+    <script>
+      $('.lorem').on('scroll', function(){
+        var scrollVal = document.querySelector('.lorem').scrollTop;
+        var scrollHei = document.querySelector('.lorem').scrollHeight;
+        var loremHei = document.querySelector('.lorem').clientHeight;
+
+        if ( (scrollVal + loremHei) == scrollHei) {
+            alert('약관을 다 읽으셨군요')
+          }
+        })
+    </script>
 
     <script>
 
+      // window.addEventListener('scroll', function(){
+      //   window.scrollBy(0,100)
+      // });
+
+      // $(window).on('scroll', function(){
+      //   console.log($(window).scrollTop())
+      // })    
+      $(window).on('scroll', function(){
+        var scrollY = $(window).scrollTop()
+        if ( scrollY > 100) {
+          $('.navbar-brand').css('font-size', '20px')
+        } else {
+          $('.navbar-brand').css('font-size', '30px')
+        }
+      })
+      
+    </script>
+
+
+    <!-- <script>
+      function discount(x, bool){
+        var result = x * 0.9
+        if (bool == true) {
+          result = result - 1.5
+        }
+        return parseFloat(result.toFixed(2))
+      }
+
+      console.log(discount(70, false))
+      console.log(discount(10, true))
+      console.log(discount(10.3, true))
+    </script> -->
+
+    <script>
       //slide라는 class를 가진 버튼을 클릭하면 각 slide 속성에 따른 버튼을 활성화하는 함수를 만들고자 함.
       var x = 0;
       var y = 0;
